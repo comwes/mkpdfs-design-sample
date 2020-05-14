@@ -4,7 +4,7 @@
 
 $bgColor: #2196f3;
 $bgTextColor: #fff;
-
+$URL: 'https://docs.pfb.brussels';
 
 @font-face {
   font-family: Fira Sans;
@@ -119,6 +119,20 @@ $bgTextColor: #fff;
   }
 }
 
+@page chapter {
+  margin: 0;
+  padding: 0;
+  @top-left {
+    content: none;
+  }
+  @top-center {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+ }
+
 
 @page :first {
   background: url(cover.jpg) no-repeat center;
@@ -129,6 +143,24 @@ $bgTextColor: #fff;
 
 
 html {
+  body {
+    article.chapter {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      height: 297mm;
+      justify-content: flex-end;
+      page: chapter;
+      h1.section_title{
+        background-color: $bgColor;
+        padding: 1cm;
+        width: 60%;
+        text-align: center;
+        color: $bgTextColor;
+        font-size: 30pt;
+      }
+    }
+  }
   article#doc-cover h1#doc-title {
     color: $bgColor;
     font-size: 38pt;
@@ -174,22 +206,6 @@ html {
   line-height: 1.5;
 }
 
-@page chapter {
-  background: $bgColor;
-  margin: 0;
-  @top-left {
-    content: none;
-  }
-
-  @top-center {
-    content: none;
-  }
-
-  @top-right {
-    content: none;
-  }
-}
-
 
 .html iframe, html img, .html svg {
   max-width: 100%;
@@ -222,7 +238,7 @@ html body {
         content: attr(src);
       }
       &[src]::before {
-        content: attr(data-title) " https://mkpdfs.comwes.eu" attr(src);
+        content: attr(data-title) " " $URL attr(src);
       }
     }
   }
