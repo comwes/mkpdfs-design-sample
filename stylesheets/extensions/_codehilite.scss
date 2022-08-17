@@ -209,7 +209,13 @@ $codehilite-whitespace: transparent;
 // ----------------------------------------------------------------------------
 // Rules: layout
 // ----------------------------------------------------------------------------
-
+pre, code{
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+}
 // Scoped in typesetted content to match specificity of regular content
 article {
 
@@ -232,9 +238,8 @@ article {
       margin: 0;
       padding: px2rem(10.5px) px2rem(12px);
       background-color: transparent;
-      overflow: auto;
       vertical-align: top;
-
+      
       // Override native scrollbar styles
       &::-webkit-scrollbar {
         width: px2rem(4px);
